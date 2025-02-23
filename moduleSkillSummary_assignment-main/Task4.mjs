@@ -71,6 +71,7 @@ const booksAfter1992 = booksWrittenAfter1992("books.json");
 console.log(booksAfter1992);
 
 
+
 //4. The number of books written before 2004
 
 function countBooksBefore2004(filename) {
@@ -116,12 +117,42 @@ function isbnFromAuthors(filename, bookAuthorName) {
 }
 
 const bookAuthorName = "Marcus Aurelius";
-const isbnForAuthors = isbnFromAuthors("example_files/books.json".bookAuthorName);
+const isbnForAuthors = isbnFromAuthors("example_files/books.json", bookAuthorName);
 console.log(
   ` The isbn number of the author ${bookAuthorName}: `,
   isbnForAuthors
 );
 
+
+
+//6. List books alphabetically assending or decendig
+
+function alphabeticalListedBooks(filename, isBooksAscending = true) {
+  const data = fs.readFileSync(filename, "utf-8");
+
+  const allBooks = JSON.parse(data);
+
+  const listLength = allBooks.length;
+
+  for (let i = 0; i < listLength - 1; i++) {
+    for (let j = 0; j < listLength - i - 1; j++) {
+      let firstBook = allBooks[j].bookTitle.toLowerCase();
+      let secondBook = allBooks[j + 1].bookTitle.toLowerCase();
+
+      if (isBooksAscending) {
+        if (firstBook > secondBook) {
+          let temp = allBooks[j];
+          allBooks[i] = allBooks[j + 1];
+          allBooks[j + 1] = temp;
+        }
+      }
+    }
+  }
+
+  return allBooks;
+}
+const booksAscending = alphabeticalListedBooks("example_files/books.json", true);
+console.log(" In ascending order the books will be:", booksAscending);
 
 
 
