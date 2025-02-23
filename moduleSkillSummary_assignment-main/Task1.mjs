@@ -41,3 +41,13 @@ function circleArea(radius) {
 }
 
 console.log(circleArea(9));
+
+
+//6. A function that returns a greeting, given a name.
+
+function greeting(name) {
+  return "Hello" + name + "!";
+}
+
+console.log(greeting("Christian"));
+
