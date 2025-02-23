@@ -1,18 +1,21 @@
 //Task 2 : Flatten those numbers
 
 function flatArray(array) {
-  let arrayResult = [];
-for (let item of array) {
-    if (Array.isArray(item)) {
-      arrayResult.push(...flatArray(item));
-    } else {
-      arrayResult.push(item);
-    }
-  }
+let arrayResult = [];
+for (let i = 0; i < array.length; i++) {
+let arrayItem  = array[i];
 
-  return arrayResult;
+if(arrayItem instanceof Array) {
+let nestedFlatArray = flatArray(arrayItem)
+for (let j = 0; j < nestedFlatArray.length; j++) {
+arrayResult[arrayResult.length] = nestedFlatArray[j];
 }
-
+  } else {
+arrayResult[arrayResult.length] = arrayItem;
+}   
+}   
+ return arrayResult;   
+}
 const nestedArray = [
   6410,
   2831,
