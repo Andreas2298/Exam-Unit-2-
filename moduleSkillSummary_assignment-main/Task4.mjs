@@ -142,7 +142,7 @@ function alphabeticalListedBooks(filename, isBooksAscending = true) {
       if (isBooksAscending) {
         if (firstBook > secondBook) {
           let temp = allBooks[j];
-          allBooks[i] = allBooks[j + 1];
+          allBooks[j] = allBooks[j + 1];
           allBooks[j + 1] = temp;
         }
       }
