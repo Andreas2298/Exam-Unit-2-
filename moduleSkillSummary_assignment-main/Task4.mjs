@@ -46,3 +46,26 @@ function getAuthorsWithTInTheirName(filename) {
 
 const authorsWithTInTheirName = getAuthorsWithTInTheirName("example_files/books.json");
 console.log(authorsWithTInTheirName);
+
+
+
+//3. The number of books written after 1992
+
+function booksWrittenAfter1992(filename) {
+  const data = fs.readFileSync(filename, "utf-8");
+
+  const allBooks = JSON.parse(data);
+
+  let bookCount = 0;
+
+  for (let i = 0; i < allBooks.length; i++) {
+    if (allBooks[i].published_year > 1992) {
+      bookCount++;
+    }
+  }
+
+  return bookCount;
+}
+
+const booksAfter1992 = booksWrittenAfter1992("books.json");
+console.log(booksAfter1992);
