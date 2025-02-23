@@ -155,6 +155,31 @@ const booksAscending = alphabeticalListedBooks("example_files/books.json", true)
 console.log(" In ascending order the books will be:", booksAscending);
 
 
+//8. List books grouped by author first name. 
+
+function groupAuthorsLastName() {
+  const data = fs.readFileSync(filename, "utf-8");
+
+  const allBooks = JSON.parse(data);
+
+  booksGrouped = {};
+
+  for (let i = 0; i < allBooks.length; i++) {
+    const book = allBooks[i];
+
+    const authorName = book.author;
+    let authorLastName = "";
+    let isSpaceFound = false;
+
+    for (let j = authorName.length - 1; j >= 0; j--) {
+      if (authorName[j] === "" && !isSpaceFound) {
+        isSpaceFound = true;
+      }
+    }
+  }
+}
+
+
 
 
 
