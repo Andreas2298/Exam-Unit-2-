@@ -21,3 +21,28 @@ function fetchBooksStaringWithThe(filename) {
 
 const filteredBooks = fetchBooksStaringWithThe("example_files/books.json");
 console.log(filteredBooks);
+
+
+
+//2. Write a function that return only books written by authors with a t in their name
+
+function getAuthorsWithTInTheirName(filename) {
+  const data = fs.readFileSync(filename, "utf-8");
+
+  const allBooks = JSON.parse(data);
+
+  const booksResult = [];
+
+  for (let i = 0; i < allBooks.length; i++) {
+    const authorName = allBooks[i].author.toLowerCase();
+
+    if (authorName.includes("t")) {
+      booksResult.push(allBooks[i]);
+    }
+  }
+
+  return booksResult;
+}
+
+const authorsWithTInTheirName = getAuthorsWithTInTheirName("example_files/books.json");
+console.log(authorsWithTInTheirName);
