@@ -23,3 +23,12 @@ function rootNumber(num) {
 }
 
 console.log(rootNumber(49));
+
+
+//4. A function that returns the cube of a number
+
+function cubeNumber(num) {
+  return num * num * num;
+}
+
+console.log(cubeNumber(5));
