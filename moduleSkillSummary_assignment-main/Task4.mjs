@@ -69,3 +69,28 @@ function booksWrittenAfter1992(filename) {
 
 const booksAfter1992 = booksWrittenAfter1992("books.json");
 console.log(booksAfter1992);
+
+
+//4. The number of books written before 2004
+
+function countBooksBefore2004(filename) {
+  const data = fs.readFileSync(filename, "utf-8");
+
+  const allBooks = JSON.parse(data);
+
+  let bookCount = 0;
+
+  for (let i = 0; i < allBooks.length; i++) {
+    if (allBooks[i].published_year < 2004) {
+      bookCount++;
+    }
+  }
+
+  return bookCount;
+}
+
+const booksBefore2004 = countBooksBefore2004("example_files/books.json");
+console.log(
+  " The total number of books written before the year 2004 is: ",
+  booksBefore2004
+);
