@@ -14,3 +14,12 @@ function convertToMm(inches) {
   return inches * 25.4;
 }
 console.log(convertToMm(4));
+
+
+//3. A function that returns the root of a number
+
+function rootNumber(num) {
+  return Math.sqrt(num);
+}
+
+console.log(rootNumber(49));
