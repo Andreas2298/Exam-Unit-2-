@@ -32,3 +32,12 @@ function cubeNumber(num) {
 }
 
 console.log(cubeNumber(5));
+
+
+//5. A function that returns the area of a circle given the radius.
+
+function circleArea(radius) {
+  return 3.14 * radius * radius;
+}
+
+console.log(circleArea(9));
