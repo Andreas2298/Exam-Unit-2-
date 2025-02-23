@@ -94,3 +94,37 @@ console.log(
   " The total number of books written before the year 2004 is: ",
   booksBefore2004
 );
+
+
+
+//5. Return the isbn number of all the books for a given author.
+
+function isbnFromAuthors(filename, bookAuthorName) {
+  const data = fs.readFileSync(filename, "utf-8");
+
+  const allBooks = JSON.parse(data);
+
+  const isbnNumber = [];
+
+  for (let i = 0; i < allBooks.length; i++) {
+    if (allBooks[i].bookAuthor.toLowerCase() === bookAuthorName.toLowerCase()) {
+      isbnNumber.push(allBooks[i].isbnNumber);
+    }
+  }
+
+  return isbnNumber;
+}
+
+const bookAuthorName = "Marcus Aurelius";
+const isbnForAuthors = isbnFromAuthors("example_files/books.json".bookAuthorName);
+console.log(
+  ` The isbn number of the author ${bookAuthorName}: `,
+  isbnForAuthors
+);
+
+
+
+
+
+
+
